@@ -1,0 +1,20 @@
+/* Enter your custom styles here */
+#__data29{
+	padding: 33px;
+}
+#__text0{
+	font-size: 41px;
+    color: #2b7d2b;
+}
+#__chart1-fraction{	font-size: 2.6rem;
+    line-height: 2.25rem;
+    height: 2.25rem;
+}
+#__chart1-fraction-scale{	
+	max-width: 3.4375rem;
+    margin-left: 0.2rem;
+    font-size: 1.875rem;
+}
+.sapSuiteHBMCSizeAuto .sapSuiteHBMCValueContainer{
+	margin-left: 19px;
+}

@@ -1,0 +1,52 @@
+{
+	"Products": [{
+		"Tem": "8:00",
+		"Profit": 12,
+		"Revenue": 24
+	}, {
+		"Tem": "8:30",
+		"Profit": 32,
+		"Revenue": 35
+	}, {
+		"Tem": "9:00",
+		"Profit": 12,
+		"Revenue": 16
+	}, {
+		"Tem": "9:30",
+		"Profit": 21,
+		"Revenue": 24
+	}, {
+		"Tem": "10:00",
+		"Profit": 32,
+		"Revenue": 15
+	}, {
+		"Tem": "10:30",
+		"Profit": 12,
+		"Revenue": 30
+	}],
+	"Tem": [{
+		"Tem": "8:00",
+		"Profit": 10000,
+		"Revenue": 35
+	}, {
+		"Tem": "8:30",
+		"Profit": 10000,
+		"Revenue": 24
+	}, {
+		"Tem": "9:00",
+		"Profit": 10000,
+		"Revenue": 24
+	}, {
+		"Tem": "9:30",
+		"Profit": 10000,
+		"Revenue": 16
+	}, {
+		"Tem": "10:00",
+		"Profit": 10000,
+		"Revenue": 15
+	}, {
+		"Tem": "10:30",
+		"Profit": 10000,
+		"Revenue": 30
+	}]
+}

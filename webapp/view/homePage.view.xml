@@ -1,0 +1,117 @@
+<mvc:View controllerName="MW_DHA_IOT_DataCenterMonitor.controller.homePage" xmlns:core="sap.ui.core" xmlns="sap.uxap" xmlns:m="sap.m"
+	xmlns:form="sap.ui.layout.form" xmlns:f="sap.f" xmlns:layout="sap.ui.layout" xmlns:goals="sap.uxap.sample.SharedBlocks.goals"
+	xmlns:personal="sap.uxap.sample.SharedBlocks.personal" xmlns:employment="sap.uxap.sample.SharedBlocks.employment"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:com="sap.suite.ui.commons"
+	xmlns:viz.data="sap.viz.ui5.data" xmlns:mic="sap.suite.ui.microchart" xmlns:viz="sap.viz.ui5.controls">
+	<!--alwaysShowContentHeader 确定标题内容是否总是在桌面上展开。-->
+	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="false" showTitleInHeaderContent="true" showEditHeaderButton="false"
+		editHeaderButtonPress="handleEditBtnPress">
+		<headerTitle>
+			<ObjectPageHeader objectTitle="Real-time monitoring time" isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false"></ObjectPageHeader>
+		</headerTitle>
+		<headerContent>
+			<m:HBox>
+				<layout:VerticalLayout class="sapUiSmallMarginTop">
+					<m:Label text="indoor temperature"/>
+					<m:HBox>
+					<mic:BulletMicroChart size="L" scale="M" targetValue="100" forecastValue="110">
+						<mic:actual>
+							<mic:BulletMicroChartData value="120" color="Good"/>
+						</mic:actual>
+						<mic:thresholds>
+							<mic:BulletMicroChartData value="0" color="Error"/>
+							<mic:BulletMicroChartData value="50" color="Critical"/>
+							<mic:BulletMicroChartData value="150" color="Critical"/>
+							<mic:BulletMicroChartData value="200" color="Error"/>
+						</mic:thresholds>
+					</mic:BulletMicroChart>
+						<m:Text text="31℃" />
+					</m:HBox>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginTop sapUiLargeMarginEnd">
+					<m:Label text="Indoor humidity"/>
+					<mic:HarveyBallMicroChart size="Auto" total="100" totalScale="%" showTotal="false" class="sapUiSmallMargin">
+						<mic:items>
+							<mic:HarveyBallMicroChartItem fraction="60" color="Good" fractionScale="%"/>
+						</mic:items>
+					</mic:HarveyBallMicroChart>
+				</layout:VerticalLayout>
+				<layout:VerticalLayout class="sapUiSmallMarginTop sapUiMediumMarginEnd">
+					<m:Label text="current network"/>
+					<m:Breadcrumbs/>
+					<m:Label design="Bold" text="DLW_DHA_Evaluate" width="100%"/>
+					<m:HBox>
+						<m:VBox  class="sapUiMediumMarginEnd">
+							<m:Text text="down"/>
+							<m:Text text="Label"/>
+						</m:VBox>
+						<m:VBox >
+							<m:Text text="up"/>
+							<m:Text text="Labsssssssssssssssel"/>
+						</m:VBox>
+					</m:HBox>
+				</layout:VerticalLayout>
+			</m:HBox>
+		</headerContent>
+		<sections>
+			<ObjectPageSection showTitle="true" title="Temperature and hunmidity data statistics " titleUppercase="true" visible="true">
+				<subSections>
+					<ObjectPageSubSection title="Temperature and hunmidity data statistics" mode="Expanded">
+						<blocks>
+						<layout:Grid defaultSpan="L6 M8 S10" class="sapUiSmallMarginTop">
+									<!--折线图 -->
+									<!--<com:ChartContainer id="chartContainer" showtitle="true">-->
+									<!--	<com:content>-->
+									<com:ChartContainerContent title="Line Chart">
+										<com:content>
+											<viz:VizFrame id="chartContainerVizFrame" height="400px" width="100%" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+										</com:content>
+									</com:ChartContainerContent>
+									<com:ChartContainerContent title="Line Chart">
+										<com:content>
+											<viz:VizFrame id="chartContainerVizFrameLine" height="400px" width="100%" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+										</com:content>
+									</com:ChartContainerContent>
+									<!--	</com:content>-->
+									<!--</com:ChartContainer>-->
+								</layout:Grid>
+						</blocks>
+						<moreBlocks/>
+						<actions/>
+					</ObjectPageSubSection>
+				</subSections>
+				<customAnchorBarButton/>
+			</ObjectPageSection>
+			<ObjectPageSection showTitle="true" title="Network data statistics" titleUppercase="true" visible="true">
+				<subSections>
+					<ObjectPageSubSection title="Network data statistics" mode="Expanded">
+						<blocks>
+								<layout:Grid defaultSpan="L6 M8 S10" class="sapUiSmallMarginTop">
+									<com:ChartContainerContent title="Line Chart">
+										<com:content>
+											<viz:VizFrame id="chartContainerVizFrameNSD" height="400px" width="100%" uiConfig="{applicationSet:'fiori'}"></viz:VizFrame>
+										</com:content>
+									</com:ChartContainerContent>
+									<mic:ComparisonMicroChart maxValue="100" scale="%" size="L" width="100%" shrinkable="true">
+										<mic:data>
+											<mic:ComparisonMicroChartData title="{oWifiModel>/name}" value="{oWifiModel>/value}" color="Good" class="sapUiForceWidthAuto sapUiMediumMarginBottom"/>
+											<mic:ComparisonMicroChartData title="DLW_DHA_Guest" value="60" color=" { path: 'value' , formatter: '.formatter.wifiState' }"/>
+											<mic:ComparisonMicroChartData title="Delaware-harbin-backup" value="10" color="Neutral" class="sapUiMediumMarginBottom"/>
+											<mic:ComparisonMicroChartData title="Delaware-harbin-backup2" value="60" color="Good"/>
+											<mic:ComparisonMicroChartData title="DLW_DHA_Evaluate" value="20" color="Critical"/>
+											<mic:ComparisonMicroChartData title="DLW_DHA_Guest" value="55" color="{ path: 'soWifiModel>/value' , formatter: '.formatter.wifiState' }"/>
+											<mic:ComparisonMicroChartData title="DLW_DHA_Evaluate" value="20" color="Critical"/>
+											<mic:ComparisonMicroChartData title="DLW_DHA_Guest" value="55" color="{ path: 'soWifiModel>/value' , formatter: '.formatter.wifiState' }"/>
+										</mic:data>
+									</mic:ComparisonMicroChart>
+						</layout:Grid>
+						</blocks>
+						<moreBlocks/>
+						<actions/>
+					</ObjectPageSubSection>
+				</subSections>
+				<customAnchorBarButton/>
+			</ObjectPageSection>
+		</sections>
+	</ObjectPageLayout>
+</mvc:View>
